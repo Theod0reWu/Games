@@ -1,18 +1,18 @@
 import java.awt.*;
 import javax.swing.*;
 public class Ball{
-	private static int hits = 0;
+	protected static int hits = 0;
 	int x = 0;
 	int y = 0;
 	int xa = 1;
 	int ya = 1;
-	private static long ballSpeed = 14;
-	private long lastMove = System.currentTimeMillis();
-	private boolean speedUp = false;
+	protected static long ballSpeed = 14;
+	protected long lastMove = System.currentTimeMillis();
+	protected boolean speedUp = false;
 
-	private Game game;
+	protected Game game;
 	public Ball(Game game){
-		this.game = game; 
+		this.game = game;
 	}
 	public void move() {
 		if (System.currentTimeMillis() - lastMove < ballSpeed){
@@ -29,7 +29,7 @@ public class Ball{
 		}
 		if (y + ya < 0)
 			ya = 1;
-		
+
 		x = x + xa;
 		y = y + ya;
 		if ((hits) % 3 == 0 && ballSpeed > 2 && speedUp){ballSpeed/=1.1; speedUp = false;}
